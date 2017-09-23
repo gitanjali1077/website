@@ -1,0 +1,43 @@
+
+
+
+
+{% extends 'notes/base.html' %}
+
+{% block title %}
+Viberr
+{% endblock %}
+{% block body %}
+
+
+
+
+   <h2> Here are all my albums :</h2>
+  {% if all_albums %}
+  {% for album in all_albums %}
+    <li style="margin-left: 10px"> <a href="{% url 'notes:detail' album.id  %}">{{ album.album_title}}</a>
+<a href="{% url 'notes:album-update' album.id  %}">Update</a>
+<form action="{% url 'notes:album-delete' album.id  %}" method="post"
+ style="display:inline">
+{% csrf_token %}
+
+<input type="hidden" name="album_id" value=" {{ album_id }}">
+<button type="submit" class="btnn btn-default btn-sm">
+<span class=" glyphicon glyphicon-trash"</span>
+</button>
+</form>
+
+
+</form>
+
+
+
+</li>
+  {% endfor %}
+  {% else %}
+  You don't have any albums
+
+  {% endif %}
+
+{% endblock %}
+

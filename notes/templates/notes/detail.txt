@@ -1,0 +1,26 @@
+
+
+{% extends 'notes/base.html' %}
+
+{% block title %}
+
+Album Details
+{% endblock %}
+{% block body %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}">
+<img src="{{ album.album_logo }}"  style="height: 300px; width: 300px">
+<h1>  {{album.album_title}}  </h1>
+<h1>  {{album.artist}}  </h1>
+
+
+<ul>
+
+     {%  for song in album.song_set.all %}
+
+      <li> {{ song.song_title }} - {{ song.filetype }}</li>
+     {% endfor  %}
+</ul>
+
+{%  endblock %}

@@ -1,0 +1,50 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+
+int main(){
+     long q,a[100000],i,count=0;
+    int k;
+    cin>>q;
+    for(i=0;i<q;i++)
+        {
+        cin>>a[i];
+    }
+    for(i=0;i<q;i++)
+        {
+        k=log2(a[i]);
+        if(a[i]==(pow(2,k+1)-1))
+            cout<<'0'<<"\n";
+        else
+            {
+            count=pow(2,k)-a[i]+(pow(2,k)-1);
+             cout<<count<<"\n";
+       
+        }
+       
+    }
+
+    return 0;
+}

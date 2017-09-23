@@ -1,0 +1,32 @@
+
+
+
+
+{% extends 'notes/base.html' %}
+
+{% block title %}
+Viberr
+{% endblock %}
+{% block body %}
+
+
+
+
+   <h2> Here are all my albums :</h2>
+  {% if all_albums %}
+  {% for album in all_albums %}
+    <li style="margin-left: 10px"> <a href="{% url 'notes:detail' album.id  %}">{{ album.album_title}}</a>
+<a href="{% url 'notes:update' album.id  %}">Update</a>
+<a href="{% url 'notes:delete' album.id  %}">Delete</a>
+
+
+
+</li>
+  {% endfor %}
+  {% else %}
+  You don't have any albums
+
+  {% endif %}
+
+{% endblock %}
+
